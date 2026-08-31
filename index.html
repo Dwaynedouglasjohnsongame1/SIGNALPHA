@@ -24,13 +24,11 @@
             background-size: cover;
         }
 
-        /* Arrière-plan Page 1 bien mis en valeur avec un léger voile lumineux */
         body.screen-1 {
             background-image: linear-gradient(135deg, rgba(5, 10, 20, 0.6), rgba(15, 23, 42, 0.65)), 
                               url('fond-accueil.jpg');
         }
 
-        /* Arrière-plan Page 2 bien mis en valeur pour un look ultra-pro */
         body.screen-2 {
             background-image: linear-gradient(135deg, rgba(8, 20, 38, 0.6), rgba(10, 15, 30, 0.65)), 
                               url('fond-studio.jpg');
@@ -49,7 +47,6 @@
             border: 1px solid rgba(56, 189, 248, 0.4);
         }
 
-        /* Titres 3D Vectoriels & Effets Néons */
         h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: 28px;
@@ -69,7 +66,6 @@
             text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
 
-        /* --- Cadres Lumineux (Effet Néon 3D) --- */
         .neon-frame {
             position: relative;
             background: linear-gradient(145deg, rgba(30, 41, 59, 0.85), rgba(15, 23, 42, 0.9));
@@ -92,7 +88,6 @@
             }
         }
 
-        /* Boutons 3D Vectoriels lumineux */
         .btn-3d {
             font-family: 'Orbitron', sans-serif;
             background: linear-gradient(135deg, #007BFF, #0056b3);
@@ -142,15 +137,9 @@
             text-shadow: none;
         }
         
-        /* Gestion des écrans (Vues) */
-        .view-screen {
-            display: none;
-        }
-        .view-screen.active {
-            display: block;
-        }
+        .view-screen { display: none; }
+        .view-screen.active { display: block; }
 
-        /* --- Interface de travail (Page 2) - Cadres de prévisualisation séduisants --- */
         input[type="file"] { 
             margin: 10px 0 20px 0; 
             color: #cbd5e1;
@@ -177,13 +166,6 @@
             align-items: center; 
             justify-content: center; 
             box-shadow: 0 8px 20px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.15);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .box:hover {
-            border-color: #38bdf8;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(56, 189, 248, 0.3);
         }
 
         .box h3 {
@@ -192,7 +174,6 @@
             font-size: 14px;
             margin-bottom: 12px;
             letter-spacing: 0.5px;
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
         }
 
         .canvas-container { 
@@ -205,7 +186,6 @@
             border-radius: 12px; 
             border: 2px solid #cbd5e1;
             overflow: hidden;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
         }
 
         canvas, img { 
@@ -214,7 +194,6 @@
             border-radius: 8px; 
         }
 
-        /* Menu de choix du format de téléchargement stylisé */
         #downloadMenu { 
             display: none; 
             background: rgba(30, 41, 59, 0.95); 
@@ -241,7 +220,7 @@
 <body class="screen-1">
 
     <div class="container">
-        <!-- ================= PAGE 1 : ACCUEIL ATHEMIX37 ================= -->
+        <!-- PAGE 1 -->
         <div id="homeScreen" class="view-screen active">
             <div class="neon-frame">
                 <h1>ATHEMIX37</h1>
@@ -250,11 +229,11 @@
             <button id="startAppBtn" class="btn-3d btn-success-3d">Commencer l'utilisation</button>
         </div>
 
-        <!-- ================= PAGE 2 : INTERFACE DE TRAVAIL ================= -->
+        <!-- PAGE 2 -->
         <div id="workScreen" class="view-screen">
             <div class="neon-frame" style="padding: 20px; margin-bottom: 20px;">
                 <h1>ATHEMIX37 Studio</h1>
-                <p style="margin-bottom: 0;">1. Choisis l'image &bull; 2. Clique sur "Générer" &bull; 3. Télécharge en toute sécurité !</p>
+                <p style="margin-bottom: 0;">1. Choisis l'image &bull; 2. Clique sur "Générer" &bull; 3. Enregistrez en toute sécurité !</p>
             </div>
             
             <input type="file" id="upload" accept="image/*"><br>
@@ -275,13 +254,13 @@
                 </div>
             </div><br>
 
-            <button id="downloadBtn" class="btn-3d btn-success-3d" disabled>Télécharger sur le téléphone</button>
+            <button id="downloadBtn" class="btn-3d btn-success-3d" disabled>Enregistrer sur le téléphone</button>
             
             <div id="downloadMenu">
                 <strong style="color: #38bdf8; display:block; margin-bottom:12px; font-family:'Orbitron'; font-size: 13px;">CHOISIR LE FORMAT :</strong>
                 <label><input type="radio" name="formatChoice" value="png" checked> Format PNG (Haute qualité)</label>
                 <label><input type="radio" name="formatChoice" value="jpg"> Format JPG</label>
-                <button id="confirmDownloadBtn" class="btn-3d btn-success-3d" style="width: 100%; padding: 12px; font-size: 13px; margin-top: 10px;">Lancer le téléchargement</button>
+                <button id="confirmDownloadBtn" class="btn-3d btn-success-3d" style="width: 100%; padding: 12px; font-size: 13px; margin-top: 10px;">Lancer l'enregistrement</button>
             </div>
         </div>
     </div>
@@ -295,7 +274,6 @@
         startAppBtn.addEventListener('click', function() {
             homeScreen.classList.remove('active');
             workScreen.classList.add('active');
-            
             bodyTag.classList.remove('screen-1');
             bodyTag.classList.add('screen-2');
         });
@@ -336,7 +314,6 @@
             
             ctx.fillStyle = "#FFFFFF";
             ctx.fillRect(0, 0, outputCanvas.width, outputCanvas.height);
-            
             ctx.drawImage(loadedImage, 0, 0);
 
             const imgData = ctx.getImageData(0, 0, outputCanvas.width, outputCanvas.height);
@@ -368,23 +345,43 @@
             downloadMenu.style.display = downloadMenu.style.display === 'block' ? 'none' : 'block';
         });
 
-        confirmDownloadBtn.addEventListener('click', function() {
+        // CORRECTION ANTI-CRASH : Utilisation du partage natif (navigator.share)
+        confirmDownloadBtn.addEventListener('click', async function() {
             const selectedFormat = document.querySelector('input[name="formatChoice"]:checked').value;
             let mimeType = selectedFormat === 'jpg' ? 'image/jpeg' : 'image/png';
             let extension = selectedFormat;
 
-            outputCanvas.toBlob(function(blob) {
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = 'signature-athemix37.' + extension;
-                document.body.appendChild(link);
-                link.click();
-                setTimeout(function() {
-                    document.body.removeChild(link);
-                    URL.revokeObjectURL(url);
-                }, 100);
+            outputCanvas.toBlob(async function(blob) {
+                const file = new File([blob], 'signature-athemix37.' + extension, { type: mimeType });
+                
+                // Si le téléphone supporte le partage de fichiers natif (ce qui évite de fermer l'application)
+                if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                    try {
+                        await navigator.share({
+                            files: [file],
+                            title: 'Signature ATHEMIX37',
+                            text: 'Voici ma signature traitée avec ATHEMIX37.'
+                        });
+                    } catch (error) {
+                        if (error.name !== 'AbortError') {
+                            console.log("Partage annulé ou erreur", error);
+                        }
+                    }
+                } else {
+                    // Solution de secours si l'appareil ne gère pas le partage direct : affichage en grand pour appui long
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'signature-athemix37.' + extension;
+                    document.body.appendChild(link);
+                    link.click();
+                    setTimeout(function() {
+                        document.body.removeChild(link);
+                        URL.revokeObjectURL(url);
+                    }, 100);
+                }
             }, mimeType, 1.0);
+            
             downloadMenu.style.display = 'none';
         });
     </script>
