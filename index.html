@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+            box-shadow: 0 6px 0 #003d82, 0 10px 20px rgba(0,0,0,0.5), 0 0 15px rgba(0, 123, 255, 0.4);
+            transition: all 0.15s ease;
+        <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -101,6 +103,295 @@
             box-shadow: 0 6px 0 #003d82, 0 10px 20px rgba(0,0,0,0.5), 0 0 15px rgba(0, 123, 255, 0.4);
             transition: all 0.15s ease;
             text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .btn-3d:hover {
+            background: linear-gradient(135deg, #1e90ff, #0066d6);
+            box-shadow: 0 4px 0 #003d82, 0 8px 18px rgba(0,0,0,0.5), 0 0 25px rgba(30, 144, 255, 0.8);
+            transform: translateY(2px);
+        }
+
+        .btn-3d:active {
+            box-shadow: 0 0 0 #003d82, 0 2px 5px rgba(0,0,0,0.5);
+            transform: translateY(6px);
+        }
+
+        .btn-success-3d {
+            background: linear-gradient(135deg, #28a745, #1e7e34);
+            box-shadow: 0 6px 0 #145222, 0 10px 20px rgba(0,0,0,0.5), 0 0 15px rgba(40, 167, 69, 0.4);
+        }
+        .btn-success-3d:hover {
+            background: linear-gradient(135deg, #2ecc71, #218838);
+            box-shadow: 0 4px 0 #145222, 0 8px 18px rgba(0,0,0,0.5), 0 0 25px rgba(46, 204, 113, 0.8);
+        }
+        .btn-success-3d:active {
+            box-shadow: 0 0 0 #145222;
+            transform: translateY(6px);
+        }
+
+        button:disabled {
+            background: #475569 !important;
+            box-shadow: 0 4px 0 #334155 !important;
+            cursor: not-allowed;
+            transform: none !important;
+            opacity: 0.5;
+            text-shadow: none;
+        }
+        
+        .view-screen {
+            display: none;
+        }
+        .view-screen.active {
+            display: block;
+        }
+
+        input[type="file"] { 
+            margin: 10px 0 20px 0; 
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .preview-area { 
+            display: flex; 
+            justify-content: space-around; 
+            flex-wrap: wrap; 
+            gap: 20px; 
+            margin-top: 15px; 
+        }
+
+        .box { 
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.85), rgba(15, 23, 42, 0.95));
+            border: 2px solid rgba(56, 189, 248, 0.4);
+            padding: 15px; 
+            border-radius: 18px; 
+            width: 270px; 
+            min-height: 210px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .box:hover {
+            border-color: #38bdf8;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(56, 189, 248, 0.3);
+        }
+
+        .box h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #38bdf8;
+            font-size: 14px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+        }
+
+        .canvas-container { 
+            background-image: linear-gradient(45deg, #cbd5e1 25%, transparent 25%), 
+                              linear-gradient(-45deg, #cbd5e1 25%, transparent 25%), 
+                              linear-gradient(45deg, transparent 75%, #cbd5e1 75%), 
+                              linear-gradient(-45deg, transparent 75%, #cbd5e1 75%);
+            background-size: 16px 16px;
+            background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+            background-color: #ffffff;
+            width: 100%; 
+            height: 100%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 12px; 
+            border: 2px solid #cbd5e1;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        canvas, img { 
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 8px; 
+        }
+
+        #downloadMenu { 
+            display: none; 
+            background: rgba(30, 41, 59, 0.95); 
+            backdrop-filter: blur(10px);
+            border: 2px solid #38bdf8; 
+            padding: 20px; 
+            border-radius: 16px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7), 0 0 15px rgba(56, 189, 248, 0.3); 
+            margin: 20px auto; 
+            max-width: 320px; 
+            text-align: left; 
+        }
+
+        #downloadMenu label { 
+            display: block; 
+            margin-bottom: 12px; 
+            cursor: pointer; 
+            font-size: 14px; 
+            color: #f8fafc;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="screen-1">
+
+    <div class="container">
+        <!-- ================= PAGE 1 : ACCUEIL ATHEMIX37 ================= -->
+        <div id="homeScreen" class="view-screen active">
+            <div class="neon-frame">
+                <h1>ATHEMIX37</h1>
+                <p>Bienvenue ! Cet outil vectoriel 3D révolutionnaire rend l'intégration et la mise en page de vos signatures sur vos documents d'une simplicité absolue et sécurisée.</p>
+            </div>
+            <button id="startAppBtn" class="btn-3d btn-success-3d">Commencer l'utilisation</button>
+        </div>
+
+        <!-- ================= PAGE 2 : INTERFACE DE TRAVAIL ================= -->
+        <div id="workScreen" class="view-screen">
+            <div class="neon-frame" style="padding: 20px; margin-bottom: 20px;">
+                <h1>ATHEMIX37 Studio</h1>
+                <p style="margin-bottom: 0;">1. Choisis l'image &bull; 2. Clique sur "Générer" &bull; 3. Télécharge en toute sécurité !</p>
+            </div>
+            
+            <input type="file" id="upload" accept="image/*"><br>
+            <button id="processBtn" class="btn-3d" disabled>Générer l'effet pro</button>
+
+            <div class="preview-area">
+                <div class="box">
+                    <h3>Signature Originale</h3>
+                    <div class="canvas-container" style="background: #f8fafc;">
+                        <img id="originalPreview" alt="Original" style="display:none;">
+                    </div>
+                </div>
+                <div class="box">
+                    <h3>Résultat ATHEMIX37 Bic</h3>
+                    <div class="canvas-container">
+                        <canvas id="outputCanvas" style="display:none;"></canvas>
+                    </div>
+                </div>
+            </div><br>
+
+            <button id="downloadBtn" class="btn-3d btn-success-3d" disabled>Télécharger sur le téléphone</button>
+            
+            <div id="downloadMenu">
+                <strong style="color: #38bdf8; display:block; margin-bottom:12px; font-family:'Orbitron'; font-size: 13px;">CHOISIR LE FORMAT :</strong>
+                <label><input type="radio" name="formatChoice" value="png" checked> Format PNG (Transparent recommandé)</label>
+                <label><input type="radio" name="formatChoice" value="jpg"> Format JPG</label>
+                <button id="confirmDownloadBtn" class="btn-3d btn-success-3d" style="width: 100%; padding: 12px; font-size: 13px; margin-top: 10px;">Lancer le téléchargement</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const bodyTag = document.body;
+        const homeScreen = document.getElementById('homeScreen');
+        const workScreen = document.getElementById('workScreen');
+        const startAppBtn = document.getElementById('startAppBtn');
+
+        startAppBtn.addEventListener('click', function() {
+            homeScreen.classList.remove('active');
+            workScreen.classList.add('active');
+            
+            bodyTag.classList.remove('screen-1');
+            bodyTag.classList.add('screen-2');
+        });
+
+        const uploadInput = document.getElementById('upload');
+        const originalPreview = document.getElementById('originalPreview');
+        const outputCanvas = document.getElementById('outputCanvas');
+        const processBtn = document.getElementById('processBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const downloadMenu = document.getElementById('downloadMenu');
+        const confirmDownloadBtn = document.getElementById('confirmDownloadBtn');
+        const ctx = outputCanvas.getContext('2d');
+        let loadedImage = null;
+
+        uploadInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                loadedImage = new Image();
+                loadedImage.onload = function() {
+                    originalPreview.src = loadedImage.src;
+                    originalPreview.style.display = 'block';
+                    processBtn.disabled = false;
+                    outputCanvas.style.display = 'none';
+                    downloadBtn.disabled = true;
+                    downloadMenu.style.display = 'none';
+                }
+                loadedImage.src = event.target.result;
+            }
+            reader.readAsDataURL(file);
+        });
+
+        processBtn.addEventListener('click', function() {
+            if (!loadedImage) return;
+            outputCanvas.width = loadedImage.width;
+            outputCanvas.height = loadedImage.height;
+            
+            ctx.drawImage(loadedImage, 0, 0);
+
+            const imgData = ctx.getImageData(0, 0, outputCanvas.width, outputCanvas.height);
+            const data = imgData.data;
+
+            let totalBrightness = 0;
+            for (let i = 0; i < data.length; i += 4) {
+                totalBrightness += (data[i] + data[i + 1] + data[i + 2]) / 3;
+            }
+            let avgBrightness = totalBrightness / (data.length / 4);
+            let threshold = avgBrightness * 0.78; 
+
+            for (let i = 0; i < data.length; i += 4) {
+                const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
+
+                if (brightness > threshold) {
+                    // Fond complètement transparent
+                    data[i + 3] = 0; 
+                } else {
+                    // Application de la couleur exacte d'un stylo BIC classique (Bleu authentique)
+                    data[i] = 15;     // Rouge
+                    data[i + 1] = 82; // Vert
+                    data[i + 2] = 186;// Bleu Bic
+                    data[i + 3] = 255; // Opacité maximale
+                }
+            }
+            
+            ctx.putImageData(imgData, 0, 0);
+            outputCanvas.style.display = 'block';
+            downloadBtn.disabled = false;
+        });
+
+        downloadBtn.addEventListener('click', function() {
+            downloadMenu.style.display = downloadMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        confirmDownloadBtn.addEventListener('click', function() {
+            const selectedFormat = document.querySelector('input[name="formatChoice"]:checked').value;
+            let mimeType = selectedFormat === 'jpg' ? 'image/jpeg' : 'image/png';
+            let extension = selectedFormat;
+
+            outputCanvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'signature-bic-athemix37.' + extension;
+                document.body.appendChild(link);
+                link.click();
+                setTimeout(function() {
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(url);
+                }, 100);
+            }, mimeType, 1.0);
+            downloadMenu.style.display = 'none';
+        });
+    </script>
+</body>
+</html>    text-transform: uppercase;
             letter-spacing: 0.8px;
         }
 
